@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-4a229379836c23e024079c68b5770173f35197fa.jar"
+        jar="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.2/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="4796f18d3750bf2bfa078407a94a7f9db35b440d"/>
+    <item
+        dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-d75e8cc2c65c7704aa4796f30f341a617e09429e.jar"
+        jar="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.2/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="d1bf02de1c56d942e7a9d093b8610ba1ef4128e3"/>
+    <item
+        dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/joda-time-2.3-3e129b3f30e2362a59eba7203e827d6d9cec1669.jar"
+        jar="/Users/dailtonrabelo/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.3/56498efd17752898cfcc3868c1b6211a07b12b8f/joda-time-2.3.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="56498efd17752898cfcc3868c1b6211a07b12b8f"/>
+    <item
+        dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-e0a12553482ac3204cc5f327f108977413e291c7.jar"
+        jar="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.2/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="b017100da14f9c158c9f5f2f508333c224b24a7c"/>
+    <item
+        dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-c86cc2d76221791e2688bb0e32acdb76c96901d1.jar"
+        jar="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/exploded-aar/com.github.blackfizz/eazegraph/1.1.14-SNAPSHOT/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="1948bda30d8ac8cf70f49458e6e782b678ef9371"/>
+    <item
+        dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/library-2.4.0-57066e18b4e739b62b22a5310bdb08d17f64dcd6.jar"
+        jar="/Users/dailtonrabelo/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb"/>
+    <item
+        dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.2-e965d389783da2df475e2993528f7a5e9b48af52.jar"
+        jar="/Applications/Android Studio.app/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.2/support-annotations-21.0.2.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="99373741f99a0556ee293c41e8faa1ca3ae8a4e6"/>
+    <item
+        dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-10b946e8a8b99b3f20954baa91fdccfb87169308.jar"
+        jar="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.2/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="7ae2d38807a43b2f2185ff4089a92c790b579e54"/>
+    <item
+        dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.2-0224a6474ad5a7f35872c170580724d44fa1c1ca.jar"
+        jar="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.2/libs/internal_impl-21.0.2.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="962e8b12569c56dbdcf8367eb4eac8bb129cd18f"/>
+
+</pre-dex-items>
