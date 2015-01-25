@@ -4,6 +4,7 @@ package com.example.tmbb;
 import android.app.Fragment;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,52 +19,55 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
-import java.util.ArrayList;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 
-public class DetailViewFragment extends Fragment{
-	Person person;
-	ArrayList<Person> persons;
-	TextView textviewReceived;
-	TextView textviewSent;
-	TextView name;
+public class DetailViewFragment extends Fragment {
+    Person person;
+    TextView textviewReceived;
+    TextView textviewSent;
+    TextView name;
+    Map<String, Person> persons = new HashMap<String, Person>();
 
 
+    @SuppressWarnings("unchecked")
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        String PersonName = (String) getActivity().getIntent()
+                .getSerializableExtra("PERSON_ID");
+        try {
+            FileInputStream fis = getActivity().openFileInput("persons.txt");
+            ObjectInputStream is = new ObjectInputStream(fis);
+            Map<String, Person> simpleClass = (Map<String, Person>) is.readObject();
+            is.close();
+            persons = simpleClass;
+            Log.d("DEBUG", "READ1" + persons.size());
+        } catch (Exception e) {
 
-	
+        }
 
-	@SuppressWarnings("unchecked")
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		String PersonName = (String)getActivity().getIntent()
-				.getSerializableExtra("PERSON_ID");
-		persons = (ArrayList<Person>)getActivity().getIntent()
-				.getSerializableExtra("PERSON_ARRAY");
-		
-		for( Person dummy : persons){
-			if(dummy.getName() != null){
-			if(dummy.getName().equals(PersonName)){
-				person = dummy;
-			}}
-		}
-		
+        for (String address : persons.keySet()) {
+            if (persons.get(address).getName().equals(PersonName))
+                person = persons.get(address);
+        }
+    }
 
-	}
-	
-	
-	
-	public View onCreateView(LayoutInflater inflater, ViewGroup parent,
-			Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.detail_fragment, parent, false);
-	
-		textviewReceived = (TextView) v.findViewById(R.id.textViewReceived);
-		textviewReceived.setText("" + person.received.size());
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup parent,
+                             Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.detail_fragment, parent, false);
+
+        textviewReceived = (TextView) v.findViewById(R.id.textViewReceived);
+        textviewReceived.setText("" + person.received.size());
 //
-		textviewSent = (TextView) v.findViewById(R.id.textViewSent);
-		textviewSent.setText("" + person.sent.size()+ "\t");
-		
-		name = (TextView) v.findViewById(R.id.textName);
-		name.setText("\t" + person.getName());
+        textviewSent = (TextView) v.findViewById(R.id.textViewSent);
+        textviewSent.setText("" + person.sent.size() + "\t");
+
+        name = (TextView) v.findViewById(R.id.textName);
+        name.setText("\t" + person.getName());
 
         PieChart mPieChart = (PieChart) v.findViewById(R.id.piechart);
 
@@ -79,11 +83,10 @@ public class DetailViewFragment extends Fragment{
 
 
         return v;
-	}
-	
-	
-	public StackedBarChart mkBarGraph(View v){
+    }
 
+
+    public StackedBarChart mkBarGraph(View v) {
 
 
         DateTime now = DateTime.now();
@@ -100,14 +103,14 @@ public class DetailViewFragment extends Fragment{
 
 // Loop through each day in the span
         while (!fmt.print(stop).equals(fmt.print(now))) {
-            for(Body p : person.received){
-                if(format.print(stop).equals(p.date)) {
+            for (Body p : person.received) {
+                if (format.print(stop).equals(p.date)) {
                     received++;
                 }
             }
 
-            for(Body p : person.sent){
-                if(format.print(stop).equals(p.date)) {
+            for (Body p : person.sent) {
+                if (format.print(stop).equals(p.date)) {
                     sent++;
                 }
             }
@@ -123,8 +126,6 @@ public class DetailViewFragment extends Fragment{
             mStackedBarChart.addBar(s1);
 
 
-
-
             stop = stop.plusDays(1);
         }
 
@@ -132,14 +133,11 @@ public class DetailViewFragment extends Fragment{
         return mStackedBarChart;
 
 
-
-
     }
 
 
+}
 
-    }
-	
 	
 
 
