@@ -8,25 +8,25 @@ package org.eazegraph.lib;
 
 public final class R {
 	public static final class attr {
-		public static final int egActivateIndicatorShadow = 0x7f0100ef;
+		public static final int egActivateIndicatorShadow = 0x7f0100f7;
 		public static final int egAnimationTime = 0x7f010025;
 		public static final int egAutoCenter = 0x7f010053;
 		public static final int egBarMargin = 0x7f010021;
 		public static final int egBarWidth = 0x7f010020;
-		public static final int egCurveSmoothness = 0x7f0100e2;
+		public static final int egCurveSmoothness = 0x7f0100ea;
 		public static final int egDrawValueInPie = 0x7f010054;
 		public static final int egEnableScroll = 0x7f010023;
 		public static final int egFixedBarWidth = 0x7f010022;
 		public static final int egHighlightStrength = 0x7f010051;
-		public static final int egIndicatorLeftPadding = 0x7f0100eb;
-		public static final int egIndicatorLineColor = 0x7f0100e8;
-		public static final int egIndicatorShadowColor = 0x7f0100f1;
-		public static final int egIndicatorShadowStrength = 0x7f0100f0;
-		public static final int egIndicatorTextColor = 0x7f0100e9;
-		public static final int egIndicatorTextSize = 0x7f0100ea;
-		public static final int egIndicatorTextUnit = 0x7f0100f2;
-		public static final int egIndicatorTopPadding = 0x7f0100ec;
-		public static final int egIndicatorWidth = 0x7f0100e7;
+		public static final int egIndicatorLeftPadding = 0x7f0100f3;
+		public static final int egIndicatorLineColor = 0x7f0100f0;
+		public static final int egIndicatorShadowColor = 0x7f0100f9;
+		public static final int egIndicatorShadowStrength = 0x7f0100f8;
+		public static final int egIndicatorTextColor = 0x7f0100f1;
+		public static final int egIndicatorTextSize = 0x7f0100f2;
+		public static final int egIndicatorTextUnit = 0x7f0100fa;
+		public static final int egIndicatorTopPadding = 0x7f0100f4;
+		public static final int egIndicatorWidth = 0x7f0100ef;
 		public static final int egInnerPadding = 0x7f01004e;
 		public static final int egInnerPaddingColor = 0x7f010059;
 		public static final int egInnerPaddingOutline = 0x7f01004f;
@@ -34,27 +34,27 @@ public final class R {
 		public static final int egLegendColor = 0x7f010026;
 		public static final int egLegendHeight = 0x7f010027;
 		public static final int egLegendTextSize = 0x7f010028;
-		public static final int egLineStroke = 0x7f0100e5;
+		public static final int egLineStroke = 0x7f0100ed;
 		public static final int egOpenClockwise = 0x7f010058;
-		public static final int egScalingFactor = 0x7f0100f5;
+		public static final int egScalingFactor = 0x7f0100fd;
 		public static final int egShowDecimal = 0x7f010029;
-		public static final int egShowLegendBeneathIndicator = 0x7f0100f3;
-		public static final int egShowStandardValue = 0x7f0100ed;
-		public static final int egShowValueIndicator = 0x7f0100e6;
+		public static final int egShowLegendBeneathIndicator = 0x7f0100fb;
+		public static final int egShowStandardValue = 0x7f0100f5;
+		public static final int egShowValueIndicator = 0x7f0100ee;
 		public static final int egShowValues = 0x7f01001f;
-		public static final int egUseCubic = 0x7f0100e3;
+		public static final int egUseCubic = 0x7f0100eb;
 		public static final int egUseCustomInnerValue = 0x7f010057;
-		public static final int egUseDynamicScaling = 0x7f0100f4;
+		public static final int egUseDynamicScaling = 0x7f0100fc;
 		public static final int egUseInnerPadding = 0x7f010050;
-		public static final int egUseOverlapFill = 0x7f0100e4;
+		public static final int egUseOverlapFill = 0x7f0100ec;
 		public static final int egUsePieRotation = 0x7f010052;
 		public static final int egValueTextColor = 0x7f010056;
 		public static final int egValueTextSize = 0x7f010055;
 		public static final int egVisibleBars = 0x7f010024;
-		public static final int egXAxisStroke = 0x7f0100ee;
+		public static final int egXAxisStroke = 0x7f0100f6;
 	}
 	public static final class string {
-		public static final int app_name = 0x7f0b0011;
+		public static final int app_name = 0x7f0c0011;
 	}
 	public static final class styleable {
 		public static final int[] BarChart = { 0x7f01001f };
@@ -85,7 +85,7 @@ public final class R {
 		public static final int PieChart_egUsePieRotation = 4;
 		public static final int PieChart_egValueTextColor = 8;
 		public static final int PieChart_egValueTextSize = 7;
-		public static final int[] ValueLineChart = { 0x7f0100e2, 0x7f0100e3, 0x7f0100e4, 0x7f0100e5, 0x7f0100e6, 0x7f0100e7, 0x7f0100e8, 0x7f0100e9, 0x7f0100ea, 0x7f0100eb, 0x7f0100ec, 0x7f0100ed, 0x7f0100ee, 0x7f0100ef, 0x7f0100f0, 0x7f0100f1, 0x7f0100f2, 0x7f0100f3, 0x7f0100f4, 0x7f0100f5 };
+		public static final int[] ValueLineChart = { 0x7f0100ea, 0x7f0100eb, 0x7f0100ec, 0x7f0100ed, 0x7f0100ee, 0x7f0100ef, 0x7f0100f0, 0x7f0100f1, 0x7f0100f2, 0x7f0100f3, 0x7f0100f4, 0x7f0100f5, 0x7f0100f6, 0x7f0100f7, 0x7f0100f8, 0x7f0100f9, 0x7f0100fa, 0x7f0100fb, 0x7f0100fc, 0x7f0100fd };
 		public static final int ValueLineChart_egActivateIndicatorShadow = 13;
 		public static final int ValueLineChart_egCurveSmoothness = 0;
 		public static final int ValueLineChart_egIndicatorLeftPadding = 9;

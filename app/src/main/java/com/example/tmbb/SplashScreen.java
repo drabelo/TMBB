@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.provider.Telephony;
 import android.text.format.DateFormat;
 import android.util.Log;
 
@@ -39,8 +40,9 @@ public class SplashScreen extends Activity {
 
 
     public void readInbox() throws Exception {
-        Long start = System.currentTimeMillis();
-        Cursor cursor = this.getContentResolver().query(Uri.parse("content://sms/inbox"), new String[]{"address", "body", "date"}, null, null, null);
+
+        //counting SMS inbox
+        Cursor cursor = this.getContentResolver().query(Telephony.Sms.Inbox.CONTENT_URI, new String[]{"address", "body", "date"}, null, null, Telephony.Sms.DEFAULT_SORT_ORDER);
         cursor.moveToFirst();
         do {
             String address = "";
@@ -73,21 +75,76 @@ public class SplashScreen extends Activity {
         } while (cursor.moveToNext());
 
         cursor.close();
+
+
+        //counting MMS inbox
+
+        ContentResolver cr = getContentResolver();
+
+        Cursor cursor2 = cr.query(Telephony.Mms.Inbox.CONTENT_URI, // Official CONTENT_URI from docs
+                new String[]{Telephony.Mms.Inbox._ID, Telephony.Mms.Inbox.DATE}, // Select body text
+                null,
+                null,
+                Telephony.Mms.Outbox.DEFAULT_SORT_ORDER); // Default sort order
+
+        cursor2.moveToFirst();
+        Log.d("DebugCursor", cursor2.getCount() + "");
+
+        do {
+
+            for (int idx = 0; idx < cursor2.getCount() - 1; idx++) {
+
+                //getting ID of MMS
+                String id = cursor2.getString(0);
+                String date = cursor2.getString(1);
+
+                //Getting MMS info from ID
+                Cursor cursor3 = cr.query(Uri.parse("content://mms/" + id + "/addr"), // Official CONTENT_URI from docs
+                        new String[]{Telephony.Mms.Addr.ADDRESS}, // Select body text
+                        null,
+                        null,
+                        null);
+
+                cursor3.moveToFirst();
+                String address = cursor3.getString(0);
+                address = address.replaceAll("[^?0-9]+", "");
+                if (address.startsWith("1"))
+                    address = address.substring(1);
+
+
+                String newD = convertDate(date + "000", "MM-dd-yyyy");
+
+                //Attempts to add new person if they dont exsits, also adds body
+                Log.d("DebuggingMMS", "" + newD + "  " + address);
+
+                if (personsMap.containsKey(address)) {
+                    personsMap.get(address).addNewReceived(new Body(newD, "mms"));
+                    Log.d("DebuggingMMS", "HIT");
+
+                } else {
+                    personsMap.put(address, new Person(address));
+                    personsMap.get(address).addNewReceived(new Body(newD, "mms"));
+                    Log.d("DebuggingMMS", "FAIL");
+
+                }
+            }
+
+
+        } while (cursor2.moveToNext());
+
+        cursor2.close();
+
         for (String address : personsMap.keySet()) {
+            //getContactPicture(this, address);
             String name = getContactName(this, address);
             if (name != null) {
                 personsMap.get(address).setName(name);
             }
         }
 
-
-        Long end = System.currentTimeMillis();
-        Log.d("DEBUG INBOX", " " + (end - start));
-
     }
 
     public static String getContactName(Context context, String phoneNumber) {
-        Long start = System.currentTimeMillis();
         ContentResolver cr = context.getContentResolver();
         Uri uri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, Uri.encode(phoneNumber));
         Cursor cursor = cr.query(uri, new String[]{ContactsContract.PhoneLookup.DISPLAY_NAME}, null, null, null);
@@ -103,16 +160,14 @@ public class SplashScreen extends Activity {
             cursor.close();
         }
 
-        Long end = System.currentTimeMillis();
-        Log.d("DEBUG ContactName", " " + (end - start));
-
         return contactName;
     }
+
 
     public void readOutbox() throws Exception {
         Long start = System.currentTimeMillis();
 
-        Cursor cursor = this.getContentResolver().query(Uri.parse("content://sms/sent"), new String[]{"address", "body", "date"}, null, null, null);
+        Cursor cursor = getContentResolver().query(Telephony.Sms.Sent.CONTENT_URI, new String[]{"address", "body", "date"}, null, null, Telephony.Sms.DEFAULT_SORT_ORDER);
         cursor.moveToFirst();
 
         do {
@@ -145,8 +200,76 @@ public class SplashScreen extends Activity {
 
         } while (cursor.moveToNext());
 
-        Long end = System.currentTimeMillis();
-        Log.d("DEBUG Outbox", " " + (end - start));
+
+        ContentResolver cr = getContentResolver();
+
+        Cursor cursor2 = cr.query(Telephony.Mms.Sent.CONTENT_URI, // Official CONTENT_URI from docs
+                new String[]{Telephony.Mms.Sent._ID, Telephony.Mms.Sent.DATE}, // Select body text
+                null,
+                null,
+                Telephony.Mms.Sent.DEFAULT_SORT_ORDER); // Default sort order
+
+        cursor2.moveToFirst();
+        Log.d("DebugCursor", cursor2.getCount() + "");
+
+        do {
+
+            for (int idx = 0; idx < cursor2.getCount() - 1; idx++) {
+
+                //getting ID of MMS
+                String id = cursor2.getString(0);
+                String date = cursor2.getString(1);
+
+                //Getting MMS info from ID
+                Cursor cursor3 = cr.query(Uri.parse("content://mms/" + id + "/addr"), // Official CONTENT_URI from docs
+                        new String[]{Telephony.Mms.Addr.ADDRESS, "CONTACT_ID"}, // Select body text
+                        null,
+                        null,
+                        null);
+
+
+                cursor3.moveToFirst();
+                cursor3.moveToNext();
+                String address = cursor3.getString(0);
+                String test = cursor3.getString(0);
+                Log.d("Debug", "" + test);
+
+
+                String newD = convertDate(date + "000", "MM-dd-yyyy");
+
+                //Attempts to add new person if they dont exsits, also adds body
+                Log.d("DebuggingMMS sentt", "" + newD + "  " + address);
+                Log.d("Debugging SMS address", address);
+
+                if (personsMap.containsKey(address)) {
+                    personsMap.get(address).addNewSent(new Body(newD, "mms"));
+                    Log.d("DebuggingMMS senttt", "HIT");
+
+                } else {
+                    personsMap.put(address, new Person(address));
+                    personsMap.get(address).addNewSent(new Body(newD, "mms"));
+                    Log.d("DebuggingMMS sentt", "FAIL");
+
+                }
+            }
+
+
+        } while (cursor2.moveToNext());
+
+        cursor2.close();
+
+
+        for (String address : personsMap.keySet()) {
+            //getContactPicture(this, address);
+            String name = getContactName(this, address);
+            if (name != null) {
+                personsMap.get(address).setName(name);
+            } else {
+                personsMap.get(address).setName(address);
+            }
+        }
+
+
 
     }
 
@@ -186,6 +309,7 @@ public class SplashScreen extends Activity {
 
             FileOutputStream fos = null;
             try {
+
                 fos = openFileOutput("persons.txt", Context.MODE_PRIVATE);
                 ObjectOutputStream os = new ObjectOutputStream(fos);
                 os.writeObject(personsMap);

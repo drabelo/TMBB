@@ -1,5 +1,6 @@
 package com.example.tmbb;
 
+
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
@@ -17,7 +18,6 @@ public abstract class SingleFragmentActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
 
-
         FragmentManager fm = getFragmentManager();
         Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);
 
@@ -27,7 +27,6 @@ public abstract class SingleFragmentActivity extends ActionBarActivity {
                     .add(R.id.fragmentContainer, fragment)
                     .commit();
         }
-
 
     }
 

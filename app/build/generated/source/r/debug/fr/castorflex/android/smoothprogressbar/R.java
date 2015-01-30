@@ -31,11 +31,11 @@ public final class R {
 		public static final int spb_default_reversed = 0x7f060008;
 	}
 	public static final class color {
-		public static final int spb_default_color = 0x7f070043;
+		public static final int spb_default_color = 0x7f07005a;
 	}
 	public static final class dimen {
-		public static final int spb_default_stroke_separator_length = 0x7f09003b;
-		public static final int spb_default_stroke_width = 0x7f09003c;
+		public static final int spb_default_stroke_separator_length = 0x7f0900b9;
+		public static final int spb_default_stroke_width = 0x7f0900ba;
 	}
 	public static final class id {
 		public static final int spb_interpolator_accelerate = 0x7f080012;
@@ -44,15 +44,15 @@ public final class R {
 		public static final int spb_interpolator_linear = 0x7f080013;
 	}
 	public static final class integer {
-		public static final int spb_default_interpolator = 0x7f0a0003;
-		public static final int spb_default_sections_count = 0x7f0a0004;
+		public static final int spb_default_interpolator = 0x7f0a0005;
+		public static final int spb_default_sections_count = 0x7f0a0006;
 	}
 	public static final class string {
-		public static final int spb_default_speed = 0x7f0b0015;
+		public static final int spb_default_speed = 0x7f0c001c;
 	}
 	public static final class style {
-		public static final int SmoothProgressBar = 0x7f0c007e;
-		public static final int Theme_SmoothProgressBarDefaults = 0x7f0c00b6;
+		public static final int SmoothProgressBar = 0x7f0d007e;
+		public static final int Theme_SmoothProgressBarDefaults = 0x7f0d00b6;
 	}
 	public static final class styleable {
 		public static final int[] SmoothProgressBar = { 0x7f010068, 0x7f010069, 0x7f01006a, 0x7f01006b, 0x7f01006c, 0x7f01006d, 0x7f01006e, 0x7f01006f, 0x7f010070, 0x7f010071, 0x7f010072, 0x7f010073, 0x7f010074, 0x7f010075, 0x7f010076, 0x7f010077 };

@@ -3,6 +3,8 @@
 
 
     <item name="blue" type="color">#4DB6AC</item>
+    <item name="white" type="color">#fffff0</item>
+
 
     <color name="bright_pink">#FF007F</color>
     <color name="red">#FF0000</color>

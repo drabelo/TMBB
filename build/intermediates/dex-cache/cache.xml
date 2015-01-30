@@ -1,96 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
+<items version="2">
 
     <item
+        jar="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-cards/2.0.1/classes.jar"
+        jumboMode="false" revision="19.1.0" sha1="d851788f6c23d14aa5fa8fbfd6d1b17725ad44c5">
+        <dex
+            dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-9a25cb6052fe7df06598933364aa5c7499898d20.jar" />
+    </item>
+    <item
+        jar="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/cardslib-core/2.0.1/classes.jar"
+        jumboMode="false" revision="19.1.0" sha1="81d6467247ced8a5d51f8ff73a6595d517eddba6">
+        <dex
+            dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-a3083efd88301a1cdea9c831311343fed1450cb3.jar" />
+    </item>
+    <item
         jar="/Users/dailtonrabelo/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
-        <dex dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/library-2.4.0-57066e18b4e739b62b22a5310bdb08d17f64dcd6.jar" />
+        jumboMode="false" revision="19.1.0" sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex
+            dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/library-2.4.0-57066e18b4e739b62b22a5310bdb08d17f64dcd6.jar" />
     </item>
     <item
         jar="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-b4eb3abfbfba462390efc5d87a8ff71f5272b76d.jar" />
+        jumboMode="false" revision="19.1.0" sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex
+            dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-b4eb3abfbfba462390efc5d87a8ff71f5272b76d.jar" />
     </item>
     <item
         jar="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
-        <dex dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-5ae34638f09c0e850ee38243287b1ad16f3d1ddf.jar" />
+        jumboMode="false" revision="19.1.0" sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
+        <dex
+            dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-5ae34638f09c0e850ee38243287b1ad16f3d1ddf.jar" />
     </item>
     <item
         jar="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/exploded-aar/com.github.castorflex.smoothprogressbar/library-circular/1.0.2/classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="59b836dcf08d8345b8d0b3c1b32e794add5e1bc1">
-        <dex dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-8b22cd651cc6feb083e3a20aa08de8accd4e0b2b.jar" />
+        jumboMode="false" revision="19.1.0" sha1="59b836dcf08d8345b8d0b3c1b32e794add5e1bc1">
+        <dex
+            dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-8b22cd651cc6feb083e3a20aa08de8accd4e0b2b.jar" />
     </item>
     <item
         jar="/Users/dailtonrabelo/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.3/56498efd17752898cfcc3868c1b6211a07b12b8f/joda-time-2.3.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="56498efd17752898cfcc3868c1b6211a07b12b8f">
-        <dex dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/joda-time-2.3-3e129b3f30e2362a59eba7203e827d6d9cec1669.jar" />
+        jumboMode="false" revision="19.1.0" sha1="56498efd17752898cfcc3868c1b6211a07b12b8f">
+        <dex
+            dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/joda-time-2.3-3e129b3f30e2362a59eba7203e827d6d9cec1669.jar" />
     </item>
     <item
         jar="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-98b5eb9df4d1002a1d051b7b5525af474b8fbecf.jar" />
+        jumboMode="false" revision="19.1.0" sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex
+            dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-98b5eb9df4d1002a1d051b7b5525af474b8fbecf.jar" />
     </item>
     <item
         jar="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/exploded-aar/com.github.castorflex.smoothprogressbar/library/1.0.1-SNAPSHOT/classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="18189948ca1bbca4211c909019fe36fb14a5f495">
-        <dex dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-abfea3822edbb9c3ba46260be57d13d2a369357a.jar" />
+        jumboMode="false" revision="19.1.0" sha1="18189948ca1bbca4211c909019fe36fb14a5f495">
+        <dex
+            dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-abfea3822edbb9c3ba46260be57d13d2a369357a.jar" />
     </item>
     <item
-        jar="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/exploded-aar/com.github.dexafree/materiallist/1.2.0/classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="9fb2aee3d84353597e61569f603532c9f9846d11">
-        <dex dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-ad6271402133d60b551d29111e3a1b09137bd71f.jar" />
+        jar="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/exploded-aar/TMBB/hellocharts-library/unspecified/classes.jar"
+        jumboMode="false" revision="19.1.0" sha1="7d65f9cfef4bd1a3c84d14eef72fb3b8b1e97bd6">
+        <dex
+            dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-d6274194d61cb16f5a7aa4f385f9895ca970bd14.jar" />
+    </item>
+    <item
+        jar="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/exploded-aar/TMBB/materialList/unspecified/classes.jar"
+        jumboMode="false" revision="19.1.0" sha1="ecd71379da3278e5e1e10de91d4f72938b9e68e6">
+        <dex
+            dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-12d62776d070e5ff75cf956fcb133dbbbf2ca1c6.jar" />
+    </item>
+    <item
+        jar="/Users/dailtonrabelo/.gradle/caches/modules-2/files-2.1/com.nhaarman.listviewanimations/lib-manipulation/3.1.0/63737e512fcd9e0ebe9bcd0bb375c2dded74116f/lib-manipulation-3.1.0.jar"
+        jumboMode="false" revision="19.1.0" sha1="63737e512fcd9e0ebe9bcd0bb375c2dded74116f">
+        <dex
+            dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/lib-manipulation-3.1.0-78b9ccc8ca3fe922c064f22957e02beb2f2d22af.jar" />
     </item>
     <item
         jar="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/exploded-aar/com.github.blackfizz/eazegraph/1.1.14-SNAPSHOT/classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="1948bda30d8ac8cf70f49458e6e782b678ef9371">
-        <dex dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-c86cc2d76221791e2688bb0e32acdb76c96901d1.jar" />
+        jumboMode="false" revision="19.1.0" sha1="1948bda30d8ac8cf70f49458e6e782b678ef9371">
+        <dex
+            dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-c86cc2d76221791e2688bb0e32acdb76c96901d1.jar" />
     </item>
     <item
         jar="/Users/dailtonrabelo/.gradle/caches/modules-2/files-2.1/com.squareup/otto/1.3.5/7941cd2c2c8ec006800d75c35f8a9dacf892ab93/otto-1.3.5.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="7941cd2c2c8ec006800d75c35f8a9dacf892ab93">
-        <dex dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/otto-1.3.5-aded976318312cf9f4b70b56985a503b09dac257.jar" />
+        jumboMode="false" revision="19.1.0" sha1="7941cd2c2c8ec006800d75c35f8a9dacf892ab93">
+        <dex
+            dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/otto-1.3.5-aded976318312cf9f4b70b56985a503b09dac257.jar" />
     </item>
     <item
         jar="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-fe6ad171a14c917709d71312f194573761208500.jar" />
+        jumboMode="false" revision="19.1.0" sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex
+            dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-fe6ad171a14c917709d71312f194573761208500.jar" />
     </item>
     <item
         jar="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
-        <dex dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-e99f94b887def5003f9668ecff66145fac799f67.jar" />
+        jumboMode="false" revision="19.1.0" sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex
+            dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-e99f94b887def5003f9668ecff66145fac799f67.jar" />
+    </item>
+    <item
+        jar="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/exploded-aar/com.github.amigold.fundapter/library/1.0/classes.jar"
+        jumboMode="false" revision="19.1.0" sha1="12e67307b10da7aad1bd09af41f281a2fed08d96">
+        <dex
+            dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-57beb9d6e6bdaf40ab66a710e1d15a93a85901cf.jar" />
     </item>
     <item
         jar="/Users/dailtonrabelo/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-8c70d15b97e6401804a2375989dda88dd7c0351f.jar" />
+        jumboMode="false" revision="19.1.0" sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex
+            dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-8c70d15b97e6401804a2375989dda88dd7c0351f.jar" />
+    </item>
+    <item
+        jar="/Users/dailtonrabelo/.gradle/caches/modules-2/files-2.1/com.nhaarman.listviewanimations/lib-core/3.1.0/f3f9629b068554d8513a2aaf34418171bf430851/lib-core-3.1.0.jar"
+        jumboMode="false" revision="19.1.0" sha1="f3f9629b068554d8513a2aaf34418171bf430851">
+        <dex
+            dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/lib-core-3.1.0-9d9812b6927b51bc908c5821d04ccdc3a15b1246.jar" />
+    </item>
+    <item
+        jar="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/exploded-aar/com.etsy.android.grid/library/1.0.5/classes.jar"
+        jumboMode="false" revision="19.1.0" sha1="8218789edb56bdcfff7da48e892b37460fc707e2">
+        <dex
+            dex="/Users/dailtonrabelo/AndroidStudioProjects/TMBB/app/build/intermediates/pre-dexed/debug/classes-d6b761055cc1a279696defcea6b953a82f1b0b00.jar" />
     </item>
 
 </items>

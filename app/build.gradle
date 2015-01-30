@@ -19,7 +19,7 @@ android {
 }
 
 repositories {
-    maven{
+    maven {
         url 'https://oss.sonatype.org/content/groups/public'
     }
 
@@ -29,7 +29,6 @@ repositories {
 dependencies {
     compile 'com.android.support:support-v4:19.+'
     compile 'com.github.blackfizz:eazegraph:1.1.14-SNAPSHOT@aar'
-    compile 'com.github.dexafree:materiallist:1.2.0'
     compile 'com.android.support:appcompat-v7:21.0.+'
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'joda-time:joda-time:2.3'
@@ -37,5 +36,11 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:21.0.+'
     compile 'com.github.castorflex.smoothprogressbar:library:1.0.1-SNAPSHOT@aar'
     compile 'com.github.castorflex.smoothprogressbar:library-circular:1.0.2'
+    compile 'com.github.amigold.fundapter:library:1.0'
+    compile 'com.github.gabrielemariotti.cards:cardslib-core:2.0.1'
+    compile 'com.github.gabrielemariotti.cards:cardslib-cards:2.0.1'
+    compile project(':hellocharts-library')
+    compile project(':materialList')
+
 
 }

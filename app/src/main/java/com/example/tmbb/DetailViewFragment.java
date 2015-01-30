@@ -89,7 +89,7 @@ public class DetailViewFragment extends Fragment {
     public StackedBarChart mkBarGraph(View v) {
 
 
-        DateTime now = DateTime.now();
+        DateTime now = DateTime.now().plusDays(1);
         DateTime start = now;
         DateTime stop = now.minusDays(6);
         DateTime inter = start;
@@ -100,6 +100,7 @@ public class DetailViewFragment extends Fragment {
         StackedBarChart mStackedBarChart = (StackedBarChart) v.findViewById(R.id.stackedbarchart);
         int received = 0;
         int sent = 0;
+
 
 // Loop through each day in the span
         while (!fmt.print(stop).equals(fmt.print(now))) {
@@ -114,7 +115,7 @@ public class DetailViewFragment extends Fragment {
                     sent++;
                 }
             }
-
+            Log.d("Debug", fmt.print(stop) + "received: " + received + "  sent" + sent);
 
             StackedBarModel s1 = new StackedBarModel(format2.print(stop));
             Long rec = new Long(received);
@@ -127,6 +128,8 @@ public class DetailViewFragment extends Fragment {
 
 
             stop = stop.plusDays(1);
+            sent = 0;
+            received = 0;
         }
 
 

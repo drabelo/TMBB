@@ -1,9 +1,9 @@
 package com.example.tmbb;
 
+import android.graphics.Bitmap;
+
 import java.util.ArrayList;
 import java.util.UUID;
-
-import android.util.Log;
 
 public class Person implements java.io.Serializable{
 	private static final long serialVersionUID = 7526472295622776147L;
@@ -15,6 +15,17 @@ public class Person implements java.io.Serializable{
 	UUID mId;
 	ArrayList<Body> received = new ArrayList<Body>();
 	ArrayList<Body> sent = new ArrayList<Body>();
+    Bitmap contact_thumbnail;
+
+    public Bitmap getContact_thumbnail() {
+        return contact_thumbnail;
+    }
+
+    public void setContact_thumbnail(Bitmap contact_thumbnail) {
+        this.contact_thumbnail = contact_thumbnail;
+    }
+
+
 	
 	public Person(String address){
 		phoneNumber = address;
