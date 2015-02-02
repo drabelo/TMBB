@@ -3,6 +3,7 @@
     android:fromYDelta="100%"
     android:toYDelta="0"
     android:duration="300">
+	
 
-
-</translate><!-- From: file:/Users/Navas/Desktop/Git/MaterialDesignLibrary/MaterialDesign/res/anim/snackbar_show_animation.xml -->
+</translate>
+<!-- From: file:/Users/Navas/Desktop/Git/MaterialDesignLibrary/MaterialDesign/res/anim/snackbar_show_animation.xml -->

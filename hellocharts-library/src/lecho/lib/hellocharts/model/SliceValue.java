@@ -65,6 +65,12 @@ public class SliceValue {
         this.sliceSpacing = sliceSpacing;
     }
 
+    public SliceValue(float value, int color, char[] label) {
+        setValue(value);
+        setColor(color);
+        this.label = label;
+    }
+
     public SliceValue(SliceValue sliceValue) {
         setValue(sliceValue.value);
         setColor(sliceValue.color);
