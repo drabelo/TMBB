@@ -3,7 +3,7 @@
     package="fr.castorflex.android.circularprogressbar"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:versionCode="21"
-    android:versionName="1.0.2">
+    android:versionName="1.0.2" >
 
     <uses-sdk
         android:minSdkVersion="14"
