@@ -41,6 +41,11 @@ public class LineChartView extends AbstractChartView implements LineChartDataPro
     }
 
     @Override
+    public LineChartData getLineChartData() {
+        return data;
+    }
+
+    @Override
     public void setLineChartData(LineChartData data) {
         if (BuildConfig.DEBUG) {
             Log.d(TAG, "Setting data for LineChartView");
@@ -53,11 +58,6 @@ public class LineChartView extends AbstractChartView implements LineChartDataPro
         }
 
         super.onChartDataChange();
-    }
-
-    @Override
-    public LineChartData getLineChartData() {
-        return data;
     }
 
     @Override

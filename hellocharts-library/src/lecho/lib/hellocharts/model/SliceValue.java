@@ -10,37 +10,30 @@ import lecho.lib.hellocharts.view.Chart;
  */
 public class SliceValue {
     private static final int DEFAULT_SLICE_SPACING_DP = 2;
-
-    /**
-     * Current value of this slice.
-     */
-    private float value;
-
-    /**
-     * Origin value of this slice, used during value animation.
-     */
-    private float originValue;
-
-    /**
-     * Difference between originValue and targetValue.
-     */
-    private float diff;
-
-    /**
-     * Color of this slice.
-     */
-    private int color = ChartUtils.DEFAULT_COLOR;
-
-    /**
-     * Darken color used to draw label background and give touch feedback.
-     */
-    private int darkenColor = ChartUtils.DEFAULT_DARKEN_COLOR;
-
     /**
      * Spacing between this slice and its neighbors.
      */
     private int sliceSpacing = DEFAULT_SLICE_SPACING_DP;
-
+    /**
+     * Current value of this slice.
+     */
+    private float value;
+    /**
+     * Origin value of this slice, used during value animation.
+     */
+    private float originValue;
+    /**
+     * Difference between originValue and targetValue.
+     */
+    private float diff;
+    /**
+     * Color of this slice.
+     */
+    private int color = ChartUtils.DEFAULT_COLOR;
+    /**
+     * Darken color used to draw label background and give touch feedback.
+     */
+    private int darkenColor = ChartUtils.DEFAULT_DARKEN_COLOR;
     /**
      * Custom label for this slice, if not set number formatting will be used.
      */

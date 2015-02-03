@@ -9,34 +9,15 @@ import lecho.lib.hellocharts.view.PieChartView;
 
 public class PieChartRotationAnimatorV8 implements PieChartRotationAnimator {
 
-    long start;
-    boolean isAnimationStarted = false;
     final PieChartView chart;
-    private float startRotation = 0;
-    private float targetRotation = 0;
     final long duration;
     final Handler handler;
     final Interpolator interpolator = new AccelerateDecelerateInterpolator();
+    long start;
+    boolean isAnimationStarted = false;
+    private float startRotation = 0;
+    private float targetRotation = 0;
     private ChartAnimationListener animationListener = new DummyChartAnimationListener();
-    private final Runnable runnable = new Runnable() {
-
-        @Override
-        public void run() {
-            long elapsed = SystemClock.uptimeMillis() - start;
-            if (elapsed > duration) {
-                isAnimationStarted = false;
-                handler.removeCallbacks(runnable);
-                chart.setChartRotation((int) targetRotation, false);
-                animationListener.onAnimationFinished();
-                return;
-            }
-            float scale = Math.min(interpolator.getInterpolation((float) elapsed / duration), 1);
-            float rotation = startRotation + (targetRotation - startRotation) * scale;
-            rotation = (rotation % 360 + 360) % 360;
-            chart.setChartRotation((int) rotation, false);
-            handler.postDelayed(this, 16);
-        }
-    };
 
     public PieChartRotationAnimatorV8(PieChartView chart) {
         this(chart, FAST_ANIMATION_DURATION);
@@ -57,6 +38,26 @@ public class PieChartRotationAnimatorV8 implements PieChartRotationAnimator {
         start = SystemClock.uptimeMillis();
         handler.post(runnable);
     }
+
+    private final Runnable runnable = new Runnable() {
+
+        @Override
+        public void run() {
+            long elapsed = SystemClock.uptimeMillis() - start;
+            if (elapsed > duration) {
+                isAnimationStarted = false;
+                handler.removeCallbacks(runnable);
+                chart.setChartRotation((int) targetRotation, false);
+                animationListener.onAnimationFinished();
+                return;
+            }
+            float scale = Math.min(interpolator.getInterpolation((float) elapsed / duration), 1);
+            float rotation = startRotation + (targetRotation - startRotation) * scale;
+            rotation = (rotation % 360 + 360) % 360;
+            chart.setChartRotation((int) rotation, false);
+            handler.postDelayed(this, 16);
+        }
+    };
 
     @Override
     public void cancelAnimation() {
@@ -79,4 +80,6 @@ public class PieChartRotationAnimatorV8 implements PieChartRotationAnimator {
             this.animationListener = animationListener;
         }
     }
+
+
 }

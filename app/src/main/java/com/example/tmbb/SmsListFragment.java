@@ -35,10 +35,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+/**
+ * This is the TextMeBack Android App.
+ * It was created to be able to parse the android SMS/MMS database
+ * and count how many times we interact with a specific contact. Right now
+ * the only options for viewing are overall sent/recieved and the option of seeing
+ * sent/recieved per day for the past two weeks. More features might be coming soon such
+ * as measurements which show the highest average for who you text, and maybe it can
+ * show text patterns that are declining.
+ *
+ * @author Dailton Rabelo
+ */
+
 public class SmsListFragment extends Fragment {
 
+    //Hashmap that holds all the info
     Map<String, Person> persons = new HashMap<String, Person>();
+    //Holds all of the names of the contacts
     ArrayList<String> names = new ArrayList<String>();
+    //MaterialList that holds all the cards
     MaterialListView mListView;
 
 
@@ -68,7 +83,7 @@ public class SmsListFragment extends Fragment {
             }
         });
 
-
+        //Trying to read the hashmap from file!
         try {
             FileInputStream fis = getActivity().openFileInput("persons.txt");
             ObjectInputStream is = new ObjectInputStream(fis);
@@ -92,7 +107,7 @@ public class SmsListFragment extends Fragment {
 
         Log.d("Debug", names.toString());
 
-
+        //trying to find contact thumbnail from address
         for (String address : persons.keySet()) {
             SimpleCard card = new SmallImageCard(getActivity());
             card.setDescription(persons.get(address).getName());
@@ -107,7 +122,6 @@ public class SmsListFragment extends Fragment {
                 cursor.moveToFirst();
                 if (cursor.getString(0) != null) {
                     map = loadContactPhotoThumbnail(cursor.getString(0));
-                    map = Bitmap.createScaledBitmap(map, 200, 200, false);
 
                     Drawable d = new BitmapDrawable(getResources(), map);
 
@@ -131,7 +145,12 @@ public class SmsListFragment extends Fragment {
         return v;
     }
 
-
+    /**
+     * Method for getting the photo bitmap from the URI
+     *
+     * @param photoDate the PHOTO_THUMB_URI
+     * @return bitMap returns the thumbnail as a bitmap
+     */
     private Bitmap loadContactPhotoThumbnail(String photoData) {
         // Creates an asset file descriptor for the thumbnail file.
         AssetFileDescriptor afd = null;

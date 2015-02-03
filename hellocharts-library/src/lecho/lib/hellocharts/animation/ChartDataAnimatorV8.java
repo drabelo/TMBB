@@ -9,30 +9,13 @@ import lecho.lib.hellocharts.view.Chart;
 
 public class ChartDataAnimatorV8 implements ChartDataAnimator {
 
-    long start;
-    boolean isAnimationStarted = false;
-    long duration;
     final Chart chart;
     final Handler handler;
     final Interpolator interpolator = new AccelerateDecelerateInterpolator();
+    long start;
+    boolean isAnimationStarted = false;
+    long duration;
     private ChartAnimationListener animationListener = new DummyChartAnimationListener();
-    private final Runnable runnable = new Runnable() {
-
-        @Override
-        public void run() {
-            long elapsed = SystemClock.uptimeMillis() - start;
-            if (elapsed > duration) {
-                isAnimationStarted = false;
-                handler.removeCallbacks(runnable);
-                chart.animationDataFinished();
-                return;
-            }
-            float scale = Math.min(interpolator.getInterpolation((float) elapsed / duration), 1);
-            chart.animationDataUpdate(scale);
-            handler.postDelayed(this, 16);
-
-        }
-    };
 
     public ChartDataAnimatorV8(Chart chart) {
         this.chart = chart;
@@ -61,6 +44,24 @@ public class ChartDataAnimatorV8 implements ChartDataAnimator {
         animationListener.onAnimationFinished();
     }
 
+    private final Runnable runnable = new Runnable() {
+
+        @Override
+        public void run() {
+            long elapsed = SystemClock.uptimeMillis() - start;
+            if (elapsed > duration) {
+                isAnimationStarted = false;
+                handler.removeCallbacks(runnable);
+                chart.animationDataFinished();
+                return;
+            }
+            float scale = Math.min(interpolator.getInterpolation((float) elapsed / duration), 1);
+            chart.animationDataUpdate(scale);
+            handler.postDelayed(this, 16);
+
+        }
+    };
+
     @Override
     public boolean isAnimationStarted() {
         return isAnimationStarted;
@@ -74,4 +75,6 @@ public class ChartDataAnimatorV8 implements ChartDataAnimator {
             this.animationListener = animationListener;
         }
     }
+
+
 }

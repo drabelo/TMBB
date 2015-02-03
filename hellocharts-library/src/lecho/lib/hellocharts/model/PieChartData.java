@@ -16,25 +16,21 @@ import lecho.lib.hellocharts.view.PieChartView;
  */
 public class PieChartData extends AbstractChartData {
     public static final int DEFAULT_CENTER_TEXT1_SIZE_SP = 42;
+    private int centerText1FontSize = DEFAULT_CENTER_TEXT1_SIZE_SP;
     public static final int DEFAULT_CENTER_TEXT2_SIZE_SP = 16;
+    private int centerText2FontSize = DEFAULT_CENTER_TEXT2_SIZE_SP;
     public static final float DEFAULT_CENTER_CIRCLE_SCALE = 0.6f;
-
     private PieChartValueFormatter formatter = new SimplePieChartValueFormatter();
     private boolean hasLabels = false;
     private boolean hasLabelsOnlyForSelected = false;
     private boolean hasLabelsOutside = false;
-
     private boolean hasCenterCircle = false;
     private int centerCircleColor = Color.WHITE;
     private float centerCircleScale = 0.6f;
-
     private int centerText1Color = Color.BLACK;
-    private int centerText1FontSize = DEFAULT_CENTER_TEXT1_SIZE_SP;
     private Typeface centerText1Typeface;
     private String centerText1;
-
     private int centerText2Color = Color.BLACK;
-    private int centerText2FontSize = DEFAULT_CENTER_TEXT2_SIZE_SP;
     private Typeface centerText2Typeface;
     private String centerText2;
 
@@ -76,6 +72,18 @@ public class PieChartData extends AbstractChartData {
         for (SliceValue sliceValue : data.values) {
             this.values.add(new SliceValue(sliceValue));
         }
+    }
+
+    public static PieChartData generateDummyData() {
+        final int numValues = 4;
+        PieChartData data = new PieChartData();
+        List<SliceValue> values = new ArrayList<SliceValue>(numValues);
+        values.add(new SliceValue(40f));
+        values.add(new SliceValue(20f));
+        values.add(new SliceValue(30f));
+        values.add(new SliceValue(50f));
+        data.setValues(values);
+        return data;
     }
 
     @Override
@@ -265,17 +273,5 @@ public class PieChartData extends AbstractChartData {
             this.formatter = formatter;
         }
         return this;
-    }
-
-    public static PieChartData generateDummyData() {
-        final int numValues = 4;
-        PieChartData data = new PieChartData();
-        List<SliceValue> values = new ArrayList<SliceValue>(numValues);
-        values.add(new SliceValue(40f));
-        values.add(new SliceValue(20f));
-        values.add(new SliceValue(30f));
-        values.add(new SliceValue(50f));
-        data.setValues(values);
-        return data;
     }
 }

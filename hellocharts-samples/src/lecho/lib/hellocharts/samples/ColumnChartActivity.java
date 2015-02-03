@@ -41,18 +41,17 @@ public class ColumnChartActivity extends ActionBarActivity {
     public static class PlaceholderFragment extends Fragment {
 
         private static final int DEFAULT_DATA = 0;
+        private int dataType = DEFAULT_DATA;
         private static final int SUBCOLUMNS_DATA = 1;
         private static final int STACKED_DATA = 2;
         private static final int NEGATIVE_SUBCOLUMNS_DATA = 3;
         private static final int NEGATIVE_STACKED_DATA = 4;
-
         private ColumnChartView chart;
         private ColumnChartData data;
         private boolean hasAxes = true;
         private boolean hasAxesNames = true;
         private boolean hasLabels = false;
         private boolean hasLabelForSelected = false;
-        private int dataType = DEFAULT_DATA;
 
         public PlaceholderFragment() {
         }

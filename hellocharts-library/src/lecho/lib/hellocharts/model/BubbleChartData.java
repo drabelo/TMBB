@@ -12,12 +12,12 @@ import lecho.lib.hellocharts.view.Chart;
  */
 public class BubbleChartData extends AbstractChartData {
     public static final int DEFAULT_MIN_BUBBLE_RADIUS_DP = 6;
+    private int minBubbleRadius = DEFAULT_MIN_BUBBLE_RADIUS_DP;
     public static final float DEFAULT_BUBBLE_SCALE = 1f;
+    private float bubbleScale = DEFAULT_BUBBLE_SCALE;
     private BubbleChartValueFormatter formatter = new SimpleBubbleChartValueFormatter();
     private boolean hasLabels = false;
     private boolean hasLabelsOnlyForSelected = false;
-    private int minBubbleRadius = DEFAULT_MIN_BUBBLE_RADIUS_DP;
-    private float bubbleScale = DEFAULT_BUBBLE_SCALE;
     // TODO: consider Collections.emptyList()
     private List<BubbleValue> values = new ArrayList<BubbleValue>();
 
@@ -42,6 +42,19 @@ public class BubbleChartData extends AbstractChartData {
         for (BubbleValue bubbleValue : data.getValues()) {
             this.values.add(new BubbleValue(bubbleValue));
         }
+    }
+
+    public static BubbleChartData generateDummyData() {
+        final int numValues = 4;
+        BubbleChartData data = new BubbleChartData();
+        List<BubbleValue> values = new ArrayList<BubbleValue>(numValues);
+        values.add(new BubbleValue(0, 20, 15000));
+        values.add(new BubbleValue(3, 22, 20000));
+        values.add(new BubbleValue(5, 25, 5000));
+        values.add(new BubbleValue(7, 30, 30000));
+        values.add(new BubbleValue(11, 22, 10));
+        data.setValues(values);
+        return data;
     }
 
     @Override
@@ -145,18 +158,5 @@ public class BubbleChartData extends AbstractChartData {
             this.formatter = formatter;
         }
         return this;
-    }
-
-    public static BubbleChartData generateDummyData() {
-        final int numValues = 4;
-        BubbleChartData data = new BubbleChartData();
-        List<BubbleValue> values = new ArrayList<BubbleValue>(numValues);
-        values.add(new BubbleValue(0, 20, 15000));
-        values.add(new BubbleValue(3, 22, 20000));
-        values.add(new BubbleValue(5, 25, 5000));
-        values.add(new BubbleValue(7, 30, 30000));
-        values.add(new BubbleValue(11, 22, 10));
-        data.setValues(values);
-        return data;
     }
 }

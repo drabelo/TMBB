@@ -27,31 +27,6 @@ public class ChartViewportAnimatorV8 implements ChartViewportAnimator {
         this.handler = new Handler();
     }
 
-    private final Runnable runnable = new Runnable() {
-
-        @Override
-        public void run() {
-            long elapsed = SystemClock.uptimeMillis() - start;
-            if (elapsed > duration) {
-                isAnimationStarted = false;
-                handler.removeCallbacks(runnable);
-                chart.setCurrentViewport(targetViewport);
-                animationListener.onAnimationFinished();
-                return;
-            }
-            float scale = Math.min(interpolator.getInterpolation((float) elapsed / duration), 1);
-            float diffLeft = (targetViewport.left - startViewport.left) * scale;
-            float diffTop = (targetViewport.top - startViewport.top) * scale;
-            float diffRight = (targetViewport.right - startViewport.right) * scale;
-            float diffBottom = (targetViewport.bottom - startViewport.bottom) * scale;
-            newViewport.set(startViewport.left + diffLeft, startViewport.top + diffTop,
-                    startViewport.right + diffRight, startViewport.bottom + diffBottom);
-            chart.setCurrentViewport(newViewport);
-
-            handler.postDelayed(this, 16);
-        }
-    };
-
     @Override
     public void startAnimation(Viewport startViewport, Viewport targetViewport) {
         this.startViewport.set(startViewport);
@@ -81,6 +56,31 @@ public class ChartViewportAnimatorV8 implements ChartViewportAnimator {
         chart.setCurrentViewport(targetViewport);
         animationListener.onAnimationFinished();
     }
+
+    private final Runnable runnable = new Runnable() {
+
+        @Override
+        public void run() {
+            long elapsed = SystemClock.uptimeMillis() - start;
+            if (elapsed > duration) {
+                isAnimationStarted = false;
+                handler.removeCallbacks(runnable);
+                chart.setCurrentViewport(targetViewport);
+                animationListener.onAnimationFinished();
+                return;
+            }
+            float scale = Math.min(interpolator.getInterpolation((float) elapsed / duration), 1);
+            float diffLeft = (targetViewport.left - startViewport.left) * scale;
+            float diffTop = (targetViewport.top - startViewport.top) * scale;
+            float diffRight = (targetViewport.right - startViewport.right) * scale;
+            float diffBottom = (targetViewport.bottom - startViewport.bottom) * scale;
+            newViewport.set(startViewport.left + diffLeft, startViewport.top + diffTop,
+                    startViewport.right + diffRight, startViewport.bottom + diffBottom);
+            chart.setCurrentViewport(newViewport);
+
+            handler.postDelayed(this, 16);
+        }
+    };
 
     @Override
     public boolean isAnimationStarted() {

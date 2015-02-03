@@ -21,6 +21,41 @@ public class AboutActivity extends ActionBarActivity {
     public static final String TAG = AboutActivity.class.getSimpleName();
     public static final String GITHUB_URL = "github.com/lecho/hellocharts-android";
 
+    public static Pair<String, Integer> getAppVersionAndBuild(Context context) {
+        try {
+            PackageInfo pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            return new Pair<String, Integer>(pInfo.versionName, pInfo.versionCode);
+        } catch (Exception e) {
+            Log.e(TAG, "Could not get version number");
+            return new Pair<String, Integer>("", 0);
+        }
+    }
+
+    @SuppressLint("DefaultLocale")
+    public static boolean launchWebBrowser(Context context, String url) {
+        try {
+            url = url.toLowerCase();
+            if (!url.startsWith("http://") || !url.startsWith("https://")) {
+                url = "http://" + url;
+            }
+
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(url));
+            ResolveInfo resolveInfo = context.getPackageManager().resolveActivity(intent,
+                    PackageManager.MATCH_DEFAULT_ONLY);
+            if (null == resolveInfo) {
+                Log.e(TAG, "No activity to handle web intent");
+                return false;
+            }
+            context.startActivity(intent);
+            Log.i(TAG, "Launching browser with url: " + url);
+            return true;
+        } catch (Exception e) {
+            Log.e(TAG, "Could not start web browser", e);
+            return false;
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,41 +91,6 @@ public class AboutActivity extends ActionBarActivity {
             });
 
             return rootView;
-        }
-    }
-
-    public static Pair<String, Integer> getAppVersionAndBuild(Context context) {
-        try {
-            PackageInfo pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-            return new Pair<String, Integer>(pInfo.versionName, pInfo.versionCode);
-        } catch (Exception e) {
-            Log.e(TAG, "Could not get version number");
-            return new Pair<String, Integer>("", 0);
-        }
-    }
-
-    @SuppressLint("DefaultLocale")
-    public static boolean launchWebBrowser(Context context, String url) {
-        try {
-            url = url.toLowerCase();
-            if (!url.startsWith("http://") || !url.startsWith("https://")) {
-                url = "http://" + url;
-            }
-
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(url));
-            ResolveInfo resolveInfo = context.getPackageManager().resolveActivity(intent,
-                    PackageManager.MATCH_DEFAULT_ONLY);
-            if (null == resolveInfo) {
-                Log.e(TAG, "No activity to handle web intent");
-                return false;
-            }
-            context.startActivity(intent);
-            Log.i(TAG, "Launching browser with url: " + url);
-            return true;
-        } catch (Exception e) {
-            Log.e(TAG, "Could not start web browser", e);
-            return false;
         }
     }
 }

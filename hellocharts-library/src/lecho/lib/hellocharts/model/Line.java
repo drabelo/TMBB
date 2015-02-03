@@ -15,16 +15,16 @@ import lecho.lib.hellocharts.view.Chart;
  */
 public class Line {
     private static final int DEFAULT_LINE_STROKE_WIDTH_DP = 3;
+    private int strokeWidth = DEFAULT_LINE_STROKE_WIDTH_DP;
     private static final int DEFAULT_POINT_RADIUS_DP = 6;
+    private int pointRadius = DEFAULT_POINT_RADIUS_DP;
     private static final int DEFAULT_AREA_TRANSPARENCY = 64;
-    private int color = ChartUtils.DEFAULT_COLOR;
-    private int darkenColor = ChartUtils.DEFAULT_DARKEN_COLOR;
     /**
      * Transparency of area when line is filled. *
      */
     private int areaTransparency = DEFAULT_AREA_TRANSPARENCY;
-    private int strokeWidth = DEFAULT_LINE_STROKE_WIDTH_DP;
-    private int pointRadius = DEFAULT_POINT_RADIUS_DP;
+    private int color = ChartUtils.DEFAULT_COLOR;
+    private int darkenColor = ChartUtils.DEFAULT_DARKEN_COLOR;
     private boolean hasPoints = true;
     private boolean hasLines = true;
     private boolean hasLabels = false;
@@ -77,16 +77,16 @@ public class Line {
         }
     }
 
+    public List<PointValue> getValues() {
+        return this.values;
+    }
+
     public void setValues(List<PointValue> values) {
         if (null == values) {
             this.values = new ArrayList<PointValue>();
         } else {
             this.values = values;
         }
-    }
-
-    public List<PointValue> getValues() {
-        return this.values;
     }
 
     public int getColor() {

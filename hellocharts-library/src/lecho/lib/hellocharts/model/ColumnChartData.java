@@ -12,11 +12,11 @@ import java.util.List;
  */
 public class ColumnChartData extends AbstractChartData {
     public static final float DEFAULT_FILL_RATIO = 0.75f;
+    private float fillRatio = DEFAULT_FILL_RATIO;
     public static final float DEFAULT_BASE_VALUE = 0.0f;
+    private float baseValue = DEFAULT_BASE_VALUE;
     private List<Column> columns = new ArrayList<Column>();
     private boolean isStacked = false;
-    private float fillRatio = DEFAULT_FILL_RATIO;
-    private float baseValue = DEFAULT_BASE_VALUE;
 
     public ColumnChartData() {
     }
@@ -36,6 +36,23 @@ public class ColumnChartData extends AbstractChartData {
         for (Column column : data.columns) {
             this.columns.add(new Column(column));
         }
+    }
+
+    public static ColumnChartData generateDummyData() {
+        final int numColumns = 4;
+        ColumnChartData data = new ColumnChartData();
+        List<Column> columns = new ArrayList<Column>(numColumns);
+        List<SubcolumnValue> values;
+        Column column;
+        for (int i = 1; i <= numColumns; ++i) {
+            values = new ArrayList<SubcolumnValue>(numColumns);
+            values.add(new SubcolumnValue(i));
+            column = new Column(values);
+            columns.add(column);
+        }
+
+        data.setColumns(columns);
+        return data;
     }
 
     @Override
@@ -116,23 +133,6 @@ public class ColumnChartData extends AbstractChartData {
     public ColumnChartData setBaseValue(float baseValue) {
         this.baseValue = baseValue;
         return this;
-    }
-
-    public static ColumnChartData generateDummyData() {
-        final int numColumns = 4;
-        ColumnChartData data = new ColumnChartData();
-        List<Column> columns = new ArrayList<Column>(numColumns);
-        List<SubcolumnValue> values;
-        Column column;
-        for (int i = 1; i <= numColumns; ++i) {
-            values = new ArrayList<SubcolumnValue>(numColumns);
-            values.add(new SubcolumnValue(i));
-            column = new Column(values);
-            columns.add(column);
-        }
-
-        data.setColumns(columns);
-        return data;
     }
 
 }

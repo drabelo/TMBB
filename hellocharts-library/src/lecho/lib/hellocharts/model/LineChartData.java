@@ -8,9 +8,8 @@ import java.util.List;
  */
 public class LineChartData extends AbstractChartData {
     public static final float DEFAULT_BASE_VALUE = 0.0f;
-
-    private List<Line> lines = new ArrayList<Line>();
     private float baseValue = DEFAULT_BASE_VALUE;
+    private List<Line> lines = new ArrayList<Line>();
 
     public LineChartData() {
 
@@ -30,6 +29,21 @@ public class LineChartData extends AbstractChartData {
         for (Line line : data.lines) {
             this.lines.add(new Line(line));
         }
+    }
+
+    public static LineChartData generateDummyData() {
+        final int numValues = 4;
+        LineChartData data = new LineChartData();
+        List<PointValue> values = new ArrayList<PointValue>(numValues);
+        values.add(new PointValue(0, 2));
+        values.add(new PointValue(1, 4));
+        values.add(new PointValue(2, 3));
+        values.add(new PointValue(3, 4));
+        Line line = new Line(values);
+        List<Line> lines = new ArrayList<Line>(1);
+        lines.add(line);
+        data.setLines(lines);
+        return data;
     }
 
     @Override
@@ -73,20 +87,5 @@ public class LineChartData extends AbstractChartData {
     public LineChartData setBaseValue(float baseValue) {
         this.baseValue = baseValue;
         return this;
-    }
-
-    public static LineChartData generateDummyData() {
-        final int numValues = 4;
-        LineChartData data = new LineChartData();
-        List<PointValue> values = new ArrayList<PointValue>(numValues);
-        values.add(new PointValue(0, 2));
-        values.add(new PointValue(1, 4));
-        values.add(new PointValue(2, 3));
-        values.add(new PointValue(3, 4));
-        Line line = new Line(values);
-        List<Line> lines = new ArrayList<Line>(1);
-        lines.add(line);
-        data.setLines(lines);
-        return data;
     }
 }

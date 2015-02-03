@@ -14,26 +14,23 @@ import android.os.Parcelable;
  */
 public class Viewport implements Parcelable {
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Viewport other = (Viewport) obj;
-        if (Float.floatToIntBits(bottom) != Float.floatToIntBits(other.bottom))
-            return false;
-        if (Float.floatToIntBits(left) != Float.floatToIntBits(other.left))
-            return false;
-        if (Float.floatToIntBits(right) != Float.floatToIntBits(other.right))
-            return false;
-        if (Float.floatToIntBits(top) != Float.floatToIntBits(other.top))
-            return false;
-        return true;
-    }
+    public static final Parcelable.Creator<Viewport> CREATOR = new Parcelable.Creator<Viewport>() {
+        /**
+         * Return a new viewport from the data in the specified parcel.
+         */
+        public Viewport createFromParcel(Parcel in) {
+            Viewport v = new Viewport();
+            v.readFromParcel(in);
+            return v;
+        }
 
+        /**
+         * Return an array of viewports of the specified size.
+         */
+        public Viewport[] newArray(int size) {
+            return new Viewport[size];
+        }
+    };
     public float left;
     public float top;
     public float right;
@@ -75,6 +72,26 @@ public class Viewport implements Parcelable {
             right = v.right;
             bottom = v.bottom;
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Viewport other = (Viewport) obj;
+        if (Float.floatToIntBits(bottom) != Float.floatToIntBits(other.bottom))
+            return false;
+        if (Float.floatToIntBits(left) != Float.floatToIntBits(other.left))
+            return false;
+        if (Float.floatToIntBits(right) != Float.floatToIntBits(other.right))
+            return false;
+        if (Float.floatToIntBits(top) != Float.floatToIntBits(other.top))
+            return false;
+        return true;
     }
 
     /**
@@ -325,6 +342,8 @@ public class Viewport implements Parcelable {
         return "Viewport [left=" + left + ", top=" + top + ", right=" + right + ", bottom=" + bottom + "]";
     }
 
+    // ** PARCERABLE **
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -335,8 +354,6 @@ public class Viewport implements Parcelable {
         result = prime * result + Float.floatToIntBits(top);
         return result;
     }
-
-    // ** PARCERABLE **
 
     /**
      * Parcelable interface methods
@@ -356,24 +373,6 @@ public class Viewport implements Parcelable {
         out.writeFloat(right);
         out.writeFloat(bottom);
     }
-
-    public static final Parcelable.Creator<Viewport> CREATOR = new Parcelable.Creator<Viewport>() {
-        /**
-         * Return a new viewport from the data in the specified parcel.
-         */
-        public Viewport createFromParcel(Parcel in) {
-            Viewport v = new Viewport();
-            v.readFromParcel(in);
-            return v;
-        }
-
-        /**
-         * Return an array of viewports of the specified size.
-         */
-        public Viewport[] newArray(int size) {
-            return new Viewport[size];
-        }
-    };
 
     /**
      * Set the viewport's coordinates from the data stored in the specified parcel. To write a viewport to a parcel,

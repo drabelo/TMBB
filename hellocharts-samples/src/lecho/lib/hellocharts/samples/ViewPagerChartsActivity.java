@@ -104,45 +104,6 @@ public class ViewPagerChartsActivity extends ActionBarActivity implements Action
     }
 
     /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to one of the sections/tabs/pages.
-     */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
-
-        public SectionsPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
-        }
-
-        @Override
-        public int getCount() {
-            return 5;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "LineChart";
-                case 1:
-                    return "ColumnChart";
-                case 2:
-                    return "BubbleChart";
-                case 3:
-                    return "PreviewLineChart";
-                case 4:
-                    return "PieChart";
-            }
-            return null;
-        }
-    }
-
-    /**
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {
@@ -150,6 +111,9 @@ public class ViewPagerChartsActivity extends ActionBarActivity implements Action
          * The fragment argument representing the section number for this fragment.
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
+
+        public PlaceholderFragment() {
+        }
 
         /**
          * Returns a new instance of this fragment for the given section number.
@@ -160,9 +124,6 @@ public class ViewPagerChartsActivity extends ActionBarActivity implements Action
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
             return fragment;
-        }
-
-        public PlaceholderFragment() {
         }
 
         @Override
@@ -327,6 +288,45 @@ public class ViewPagerChartsActivity extends ActionBarActivity implements Action
             return data;
         }
 
+    }
+
+    /**
+     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to one of the sections/tabs/pages.
+     */
+    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+        public SectionsPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            // getItem is called to instantiate the fragment for the given page.
+            // Return a PlaceholderFragment (defined as a static inner class below).
+            return PlaceholderFragment.newInstance(position + 1);
+        }
+
+        @Override
+        public int getCount() {
+            return 5;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position) {
+                case 0:
+                    return "LineChart";
+                case 1:
+                    return "ColumnChart";
+                case 2:
+                    return "BubbleChart";
+                case 3:
+                    return "PreviewLineChart";
+                case 4:
+                    return "PieChart";
+            }
+            return null;
+        }
     }
 
 }

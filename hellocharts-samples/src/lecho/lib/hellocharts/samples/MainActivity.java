@@ -60,6 +60,10 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public enum ChartType {
+        LINE_CHART, COLUMN_CHART, PIE_CHART, BUBBLE_CHART, PREVIEW_LINE_CHART, PREVIEW_COLUMN_CHART, OTHER
+    }
+
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -270,10 +274,6 @@ public class MainActivity extends ActionBarActivity {
             this.text2 = text2;
             this.chartType = chartType;
         }
-    }
-
-    public enum ChartType {
-        LINE_CHART, COLUMN_CHART, PIE_CHART, BUBBLE_CHART, PREVIEW_LINE_CHART, PREVIEW_COLUMN_CHART, OTHER
     }
 
 }
