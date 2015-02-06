@@ -17,15 +17,15 @@
     android:id="@+id/action_bar_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
     <android.support.v7.internal.widget.ViewStubCompat
         android:id="@+id/action_mode_bar_stub"
-        android:inflatedId="@+id/action_mode_bar"
-        android:layout="@layout/abc_action_mode_bar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:inflatedId="@+id/action_mode_bar"
+        android:layout="@layout/abc_action_mode_bar" />
 
     <include layout="@layout/abc_screen_content_include" />
 
