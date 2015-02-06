@@ -1,1 +1,1 @@
-include ':app', ':hellocharts-library', ':hellocharts-samples', ':materialList'
+include ':app', ':hellocharts-library', ':hellocharts-samples', ':materialList', ':actionbarsherlock-fest', ':actionbarsherlock-i18n', ':actionbarsherlock'

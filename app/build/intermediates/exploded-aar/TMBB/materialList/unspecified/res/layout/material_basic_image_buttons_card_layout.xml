@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.dexafree.materialList.cards.internal.BasicImageButtonsCardItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MainLayout">
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cardView"
+        style="@style/MainCardView"
+        card_view:cardCornerRadius="@dimen/card_corner_radius">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:contentDescription="@null"
+                android:minWidth="100dp"
+                android:scaleType="fitStart" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/titleTextView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="16dp"
+                    android:textColor="@color/black_button"
+                    android:textSize="@dimen/title_size"
+                    tools:text="El Pooch" />
+
+                <TextView
+                    android:id="@+id/descriptionTextView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/big_padding"
+                    android:paddingLeft="@dimen/big_padding"
+                    android:paddingRight="@dimen/big_padding"
+                    android:textColor="@color/description_color"
+                    android:textSize="@dimen/description_size"
+                    tools:text="By Alex Nelson" />
+
+                <View
+                    android:id="@+id/cardDivider"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:background="@color/divider_grey"
+                    android:visibility="invisible" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/left_text_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/big_padding"
+                        android:paddingLeft="@dimen/big_padding"
+                        android:paddingRight="@dimen/small_padding"
+                        android:paddingTop="@dimen/big_padding"
+                        android:textColor="@color/black_button"
+                        android:textSize="@dimen/button_size"
+                        android:textStyle="bold"
+                        tools:text="Free sample" />
+
+                    <TextView
+                        android:id="@+id/right_text_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/big_padding"
+                        android:paddingLeft="@dimen/small_padding"
+                        android:paddingRight="@dimen/big_padding"
+                        android:paddingTop="@dimen/big_padding"
+                        android:textColor="@color/orange_button"
+                        android:textSize="@dimen/button_size"
+                        android:textStyle="bold"
+                        tools:text="Review" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</com.dexafree.materialList.cards.internal.BasicImageButtonsCardItemView><!-- From: file:/Users/dailtonrabelo/AndroidStudioProjects/TMBB/materialList/src/main/res/layout/material_basic_image_buttons_card_layout.xml -->
