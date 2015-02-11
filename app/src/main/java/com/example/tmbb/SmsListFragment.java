@@ -1,8 +1,8 @@
 package com.example.tmbb;
 
 
-import android.app.Fragment;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.database.Cursor;
@@ -15,24 +15,21 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Contacts;
 import android.provider.ContactsContract;
-import android.util.Log;
+import android.provider.Telephony;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.dexafree.materialList.cards.SimpleCard;
 import com.dexafree.materialList.cards.SmallImageCard;
 import com.dexafree.materialList.view.MaterialListView;
 
 import java.io.FileDescriptor;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 
 /**
@@ -47,108 +44,57 @@ import java.util.Map;
  * @author Dailton Rabelo
  */
 
-public class SmsListFragment extends Fragment {
+public class SmsListFragment extends ListFragment {
 
-    //Hashmap that holds all the info
-    Map<String, Person> persons = new HashMap<String, Person>();
-    //Holds all of the names of the contacts
-    ArrayList<String> names = new ArrayList<String>();
+
     //MaterialList that holds all the cards
     MaterialListView mListView;
+    ArrayList<holder> addresses = new ArrayList<holder>();
+    ArrayList<Person> names = new ArrayList<Person>();
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+    }
+
+    public static SmsListFragment newInstance(int page, String title) {
+        SmsListFragment fragmentFirst = new SmsListFragment();
+        Bundle args = new Bundle();
+        args.putInt("someInt", page);
+        args.putString("someTitle", title);
+        fragmentFirst.setArguments(args);
+        return fragmentFirst;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+
+
+            fillArray();
+
 
     }
 
-    public View onCreateView(LayoutInflater inflater, ViewGroup parent,
-                             Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.list_activity, parent, false);
-
-        mListView = (MaterialListView) v.findViewById(R.id.material_listview);
-
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                String name = ((SimpleCard) mListView.getCard(position)).getDescription();
-                Intent i = new Intent(getActivity(), DetailViewActivity.class);
-
-                i.putExtra("PERSON_ID", name);
 
 
-                startActivity(i);
-            }
-        });
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+        /** Creating an array adapter to store the list of countries **/
+        MyAdapter adapter = new MyAdapter(inflater.getContext(), R.layout.contact_item, names);
 
-        //Trying to read the hashmap from file!
-        try {
-            FileInputStream fis = getActivity().openFileInput("persons.txt");
-            ObjectInputStream is = new ObjectInputStream(fis);
-            Map<String, Person> simpleClass = (Map<String, Person>) is.readObject();
-            is.close();
-            persons = simpleClass;
-            Log.d("DEBUG", "READ1" + persons.size());
+        /** Setting the list adapter for the ListFragment */
+        setListAdapter(adapter);
 
-
-            for (String address : persons.keySet()) {
-                if (persons.get(address).getName().trim().length() < 2) {
-                    persons.remove(address);
-                }
-            }
-
-
-        } catch (Exception e) {
-            Log.d("Debug", "" + e.getMessage());
-            e.printStackTrace();
-        }
-
-        Log.d("Debug", names.toString());
-
-        //trying to find contact thumbnail from address
-        for (String address : persons.keySet()) {
-            SimpleCard card = new SmallImageCard(getActivity());
-            card.setDescription(persons.get(address).getName());
-
-
-            ContentResolver cr = getActivity().getContentResolver();
-            Uri uri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, Uri.encode(address));
-            Cursor cursor = cr.query(uri, new String[]{ContactsContract.PhoneLookup.PHOTO_THUMBNAIL_URI}, null, null, null);
-            Bitmap map;
-
-            if (cursor.getCount() != 0) {
-                cursor.moveToFirst();
-                if (cursor.getString(0) != null) {
-                    map = loadContactPhotoThumbnail(cursor.getString(0));
-
-                    Drawable d = new BitmapDrawable(getResources(), map);
-
-                    card.setDrawable(d);
-                } else {
-                    card.setDrawable(R.drawable.contact_thumbnail);
-                }
-            } else {
-                card.setDrawable(R.drawable.contact_thumbnail);
-            }
-
-            try {
-                mListView.add(card);
-            } catch (Exception e) {
-                Log.d("Debug", "" + e.getMessage());
-            }
-
-        }
-
-
-        return v;
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
-
     /**
      * Method for getting the photo bitmap from the URI
      *
-     * @param photoDate the PHOTO_THUMB_URI
+     * @param //photoDate the PHOTO_THUMB_URI
      * @return bitMap returns the thumbnail as a bitmap
      */
     private Bitmap loadContactPhotoThumbnail(String photoData) {
@@ -218,5 +164,123 @@ public class SmsListFragment extends Fragment {
         return null;
     }
 
+    public static String getContactName(Context context, String phoneNumber) {
+        ContentResolver cr = context.getContentResolver();
+        Uri uri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, Uri.encode(phoneNumber));
+        Cursor cursor = cr.query(uri, new String[]{ContactsContract.PhoneLookup.DISPLAY_NAME}, null, null, null);
+        if (cursor == null) {
+            return null;
+        }
+        String contactName = "";
+        if (cursor.moveToFirst()) {
+            contactName = cursor.getString(cursor.getColumnIndex(ContactsContract.PhoneLookup.DISPLAY_NAME));
+        }
+
+        if(contactName.length() < 2){
+            contactName = phoneNumber;
+        }
+
+
+        if (cursor != null && !cursor.isClosed()) {
+            cursor.close();
+        }
+
+        return contactName;
+    }
+
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        Person person =  (Person)getListAdapter().getItem(position);
+        Intent i = new Intent(getActivity(), DetailViewActivity.class);
+        i.putExtra("THREAD_ID", person.thread_id);
+        i.putExtra("NAME", person.name);
+        startActivity(i);
+    }
+
+    public void fillArray() {
+        Cursor cursor1 = getActivity().getContentResolver().query(Telephony.Threads.CONTENT_URI, new String[]{"address", "thread_id"}, null, null, "date DESC");
+        cursor1.moveToFirst();
+        do {
+
+            addresses.add(new holder(cursor1.getString(0), cursor1.getString(1)));
+
+
+        } while (cursor1.moveToNext());
+
+
+        for (holder temp : addresses) {
+            String contactName = getContactName(getActivity(), temp.address);
+            if (contactName != null){
+                SimpleCard card = new SmallImageCard(getActivity());
+                card.setDescription(contactName);
+                card.setSecret(temp.thread_id);
+
+
+
+//
+
+                ContentResolver cr = getActivity().getContentResolver();
+                Uri uri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, Uri.encode(temp.address));
+                Cursor cursor = cr.query(uri, new String[]{ContactsContract.PhoneLookup.PHOTO_THUMBNAIL_URI}, null, null, null);
+                Bitmap map;
+
+                if (cursor.getCount() != 0) {
+                    cursor.moveToFirst();
+                    if (cursor.getString(0) != null) {
+                        map = loadContactPhotoThumbnail(cursor.getString(0));
+                        names.add(new Person(contactName, map, temp.thread_id));
+                        Drawable d = new BitmapDrawable(getResources(), map);
+
+                        card.setDrawable(d);
+                    } else {
+                        names.add(new Person(contactName, BitmapFactory.decodeResource(getActivity().getResources(),
+                                R.drawable.contact_thumbnail), temp.thread_id));
+                    }
+                } else {
+                    names.add(new Person(contactName, BitmapFactory.decodeResource(getActivity().getResources(),
+                            R.drawable.contact_thumbnail), temp.thread_id));
+
+
+                }
+
+                try {
+                    mListView.add(card);
+                } catch (Exception e) {
+                }
+                cursor.close();
+
+            }
+
+        }
+
+        cursor1.close();
+    }
+
+    public class holder {
+        public String getThread_id() {
+            return thread_id;
+        }
+
+        public void setThread_id(String thread_id) {
+            this.thread_id = thread_id;
+        }
+
+        public String getAddress() {
+            return address;
+        }
+
+
+        public holder(String address, String thread_id) {
+            this.address = address;
+            this.thread_id = thread_id;
+        }
+
+        String address;
+
+        public void setAddress(String address) {
+            this.address = address;
+        }
+
+        String thread_id;
+    }
 
 }

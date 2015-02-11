@@ -3,7 +3,6 @@ package com.example.tmbb;
 import android.graphics.Bitmap;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 public class Person implements java.io.Serializable {
     private static final long serialVersionUID = 7526472295622776147L;
@@ -12,17 +11,21 @@ public class Person implements java.io.Serializable {
     String name = "";
     String phoneNumber = "";
     String date = "";
-    UUID mId;
+    String thread_id;
     //Arrays holding the received and sent SMS's
     ArrayList<Body> received = new ArrayList<Body>();
     ArrayList<Body> sent = new ArrayList<Body>();
     //the contact thumbnail
     Bitmap contact_thumbnail;
 
-    public Person(String address) {
-        phoneNumber = address;
+    public Person(String name, Bitmap contact_thumbnail, String thread) {
+
+        this.name = name;
+        this.thread_id = thread;
+        this.contact_thumbnail = contact_thumbnail;
     }
 
+    public Person(){}
 
     /**
      * @param body the body of the SMS
@@ -43,7 +46,6 @@ public class Person implements java.io.Serializable {
     }
 
     /**
-     *
      * @return the date
      */
     public String getDate() {
@@ -52,7 +54,6 @@ public class Person implements java.io.Serializable {
 
 
     /**
-     *
      * @param date sets the date
      */
     public void setDate(String date) {
@@ -60,7 +61,6 @@ public class Person implements java.io.Serializable {
     }
 
     /**
-     *
      * @return the name
      */
     public String getName() {
@@ -68,7 +68,6 @@ public class Person implements java.io.Serializable {
     }
 
     /**
-     *
      * @param name the name to set
      */
     public void setName(String name) {
@@ -77,7 +76,6 @@ public class Person implements java.io.Serializable {
 
 
     /**
-     *
      * @return this person objects toString()
      */
     public String toString() {
@@ -85,7 +83,6 @@ public class Person implements java.io.Serializable {
     }
 
     /**
-     *
      * @param object another person
      * @return true if equal and false if not
      */
@@ -99,8 +96,6 @@ public class Person implements java.io.Serializable {
 
         return sameSame;
     }
-
-
 
 
 }
@@ -121,17 +116,5 @@ class Body implements java.io.Serializable {
         return body + "     " + date;
     }
 
-    public boolean equals(Object object) {
-        boolean sameSame = false;
-
-        if (object != null && object instanceof Body) {
-            if (this.date.equals(((Body) object).date)
-                    && this.body.equals(((Body) object).body))
-                sameSame = true;
-
-        }
-
-        return sameSame;
-    }
 
 }

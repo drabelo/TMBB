@@ -2,20 +2,19 @@
 <resources>
 
 
-    <item name="blue" type="color">#4DB6AC</item>
-    <item name="white" type="color">#fffff0</item>
+    <item name="blue" type="color">#ff4db6ac</item>
+    <item name="white" type="color">#fffffff0</item>
+    <item name="dark_blue" type="color">#0B6D63</item>
 
+    <color name="grey">#C2C2C2</color>
 
-    <color name="bright_pink">#FF007F</color>
-    <color name="red">#FF0000</color>
-    <color name="orange">#FF7F00</color>
-    <color name="yellow">#FFFF00</color>
-    <color name="chartreuse">#7FFF00</color>
-    <color name="green">#00FF00</color>
-    <color name="spring_green">#00FF7F</color>
-    <color name="cyan">#00FFFF</color>
-    <color name="azure">#007FFF</color>
-    <color name="violet">#7F00FF</color>
-    <color name="magenta">#FF00FF</color>
+    <!-- app theme colors -->
+    <color name="app_theme_light">#009688</color>
+    <color name="app_theme_dark">#00695C</color>
+    <color name="app_theme_accent">#FF9800</color>
+
+    <color name="text_black">#000000</color>
+    <color name="text_grey">#666666</color>
+
 
 </resources>
