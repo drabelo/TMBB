@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Libraries/hellocharts-library-unspecified">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/TMBB/Libraries@hellocharts-library/unspecified/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/TMBB/Libraries@hellocharts-library/unspecified/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

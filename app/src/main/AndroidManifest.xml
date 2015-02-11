@@ -23,7 +23,7 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.MyTheme">
         <activity
-            android:name=".DetailViewActivity"
+            android:name=".Activities.DetailViewActivity"
             android:label="@string/app_name"
             android:parentActivityName=".SmsListActivity"
             android:screenOrientation="portrait"></activity>
@@ -32,7 +32,7 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
         <intent-filter>

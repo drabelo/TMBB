@@ -7,9 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/Libraries/actionbarsherlock-fest/actionbarsherlock-fest.iml" filepath="$PROJECT_DIR$/Libraries/actionbarsherlock-fest/actionbarsherlock-fest.iml" />
       <module fileurl="file://$PROJECT_DIR$/Libraries/actionbarsherlock-i18n/actionbarsherlock-i18n.iml" filepath="$PROJECT_DIR$/Libraries/actionbarsherlock-i18n/actionbarsherlock-i18n.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Libraries/hellocharts-library/hellocharts-library.iml" filepath="$PROJECT_DIR$/Libraries/hellocharts-library/hellocharts-library.iml" />
       <module fileurl="file://$PROJECT_DIR$/Libraries/hellocharts-samples/hellocharts-samples.iml" filepath="$PROJECT_DIR$/Libraries/hellocharts-samples/hellocharts-samples.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Libraries/materialList/materialList.iml" filepath="$PROJECT_DIR$/Libraries/materialList/materialList.iml" />
     </modules>
   </component>
 </project>

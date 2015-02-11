@@ -104,7 +104,7 @@ MERGED from com.pkmmte.view:circularimageview:1.1:11:5
 		ADDED from AndroidManifest.xml:22:9
 	android:theme
 		ADDED from AndroidManifest.xml:24:9
-activity#com.example.tmbb.DetailViewActivity
+activity#com.example.tmbb.Activities.DetailViewActivity
 ADDED from AndroidManifest.xml:25:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:29:13
@@ -122,7 +122,7 @@ ADDED from AndroidManifest.xml:30:9
 		ADDED from AndroidManifest.xml:32:13
 	android:name
 		ADDED from AndroidManifest.xml:31:13
-activity#com.example.tmbb.MainActivity
+activity#com.example.tmbb.Activities.MainActivity
 ADDED from AndroidManifest.xml:34:9
 	android:screenOrientation
 		ADDED from AndroidManifest.xml:37:13
