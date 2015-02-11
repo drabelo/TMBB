@@ -15,72 +15,118 @@
             android:background="#E0F7FA"
             android:orientation="vertical">
 
-
-            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                card_view:cardCornerRadius="3dp"
-                card_view:cardElevation="6dp"
-                card_view:cardUseCompatPadding="true">
-
+                android:padding="@dimen/card_padding" >
 
                 <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/card_margin"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding" >
+
+                    <!-- start -->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_small"
+                        android:text="NAME"
+                        android:textColor="@color/app_theme_light"
+                        android:textSize="@dimen/card_title"
+                        android:textStyle="bold"
+                        android:id="@+id/textviewName"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:layout_gravity="center_horizontal" />
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center">
+                        android:baselineAligned="false"
+                        android:orientation="horizontal" >
 
-                        <TextView
-                            android:id="@+id/textView1"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-thin"
-                            android:text="Sent: "
-                            android:textAppearance="?android:attr/textAppearanceLarge" />
-                        />
+                            android:layout_weight="1"
+                            android:orientation="vertical" >
 
-                        <TextView
-                            android:id="@+id/textViewSent"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-thin"
-                            android:text="TextView"
-                            android:textAppearance="?android:attr/textAppearanceLarge" />
-                        />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="RECEIVED"
+                                android:textSize="@dimen/item_title"
+                                android:textStyle="bold"
+                                android:textColor="#56B7F1" />
 
-                        <TextView
-                            android:id="@+id/textView3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-thin"
-                            android:text=" Received: "
-                            android:textAppearance="?android:attr/textAppearanceLarge" />
-                        />
+                            <TextView
+                                android:id="@+id/textViewReceived"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="0"
+                                android:fontFamily="sans-serif-thin"
 
-                        <TextView
-                            android:id="@+id/textViewReceived"
-                            android:layout_width="wrap_content"
+                                android:textColor="@color/text_black"
+                                android:textSize="@dimen/text1" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-thin"
-                            android:text="TextView"
-                            android:textAppearance="?android:attr/textAppearanceLarge" />
-                        />
+                            android:layout_weight="1"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="SENT"
+                                android:textSize="@dimen/item_title"
+                                android:textStyle="bold"
+                                android:textColor="#63cbb0" />
+
+                            <TextView
+                                android:id="@+id/textViewSent"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="0"
+                                android:fontFamily="sans-serif-thin"
+
+                                android:textColor="@color/text_black"
+                                android:textSize="@dimen/text1" />
+                        </LinearLayout>
                     </LinearLayout>
-
-
+                </LinearLayout>
             </android.support.v7.widget.CardView>
 
-
-            <lecho.lib.hellocharts.view.PieChartView
-                android:id="@+id/piechart"
-                android:layout_width="match_parent"
-                android:layout_height="275dp" />
 
 
             <lecho.lib.hellocharts.view.ColumnChartView
                 android:id="@+id/chart"
                 android:layout_width="match_parent"
-                android:layout_height="275dp"></lecho.lib.hellocharts.view.ColumnChartView>
+                android:layout_height="200dp"
+                android:layout_weight="1" >
+            </lecho.lib.hellocharts.view.ColumnChartView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/darker_gray" />
+
+            <lecho.lib.hellocharts.view.PreviewColumnChartView
+                android:id="@+id/chart_preview"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_weight="1" >
+            </lecho.lib.hellocharts.view.PreviewColumnChartView>
 
 
         </LinearLayout>
